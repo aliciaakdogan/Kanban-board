@@ -1,0 +1,13 @@
+.board {
+  padding: 24px;
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 50px;
+
+  .board-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+}
