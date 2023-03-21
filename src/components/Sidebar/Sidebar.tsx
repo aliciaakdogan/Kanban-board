@@ -6,7 +6,8 @@ import { useBoardContext } from "../../context/BoardsContext";
 type Props = {};
 
 export default function Sidebar({}: Props) {
-  const { projects, createProject } = useBoardContext();
+  const { projects, createProject, currentProject, changeBoard } =
+    useBoardContext();
   const [showCreateProject, setShoeCreateProject] = useState(false);
   const [projectName, setProjectName] = useState("");
 
@@ -14,8 +15,11 @@ export default function Sidebar({}: Props) {
     <div className="sidebar">
       <p>Allboards (2) </p>
       <ul className="sidebar-items">
-        {projects.map((project) => (
-          <li>
+        {projects.map((project, index) => (
+          <li
+            className={project.id === currentProject.id ? "active" : ""}
+            onClick={() => changeBoard(index)}
+          >
             <Folder />
             {project.name}
           </li>
