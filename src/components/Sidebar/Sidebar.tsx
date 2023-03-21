@@ -1,27 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import { Folder, Plus } from "react-feather";
 import "./Sidebar.scss";
+import { useBoardContext } from "../../context/BoardsContext";
 
 type Props = {};
 
 export default function Sidebar({}: Props) {
+  const { projects, createProject } = useBoardContext();
+  const [showCreateProject, setShoeCreateProject] = useState(false);
+  const [projectName, setProjectName] = useState("");
+
   return (
     <div className="sidebar">
       <p>Allboards (2) </p>
       <ul className="sidebar-items">
-        <li className="active">
-          <Folder />
-          Place board
-        </li>
-        <li>
-          <Folder />
-          Place board
-        </li>
-        <li>
+        {projects.map((project) => (
+          <li>
+            <Folder />
+            {project.name}
+          </li>
+        ))}
+
+        <li onClick={() => setShoeCreateProject(!showCreateProject)}>
           <Plus />
           Create board
         </li>
       </ul>
+      {showCreateProject && (
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            createProject(projectName);
+            setProjectName("");
+            setShoeCreateProject(false);
+          }}
+        >
+          <input
+            type="text"
+            value={projectName}
+            onChange={(e) => setProjectName(e.target.value)}
+          />
+          <button>Create</button>
+        </form>
+      )}
     </div>
   );
 }
