@@ -51,4 +51,36 @@
       }
     }
   }
+
+  form {
+    padding: 0px 25px;
+  }
+
+  input {
+    width: 100%;
+    display: block;
+    border-radius: 5px;
+    border: 1px solid var(--bg-lines);
+    background-color: var(--bg-lines);
+    padding: 6px 15px;
+    color: var(--text);
+    outline: none;
+    margin-bottom: 6px;
+
+    &:focus {
+      border-color: var(--primary);
+    }
+  }
+
+  button {
+    border-radius: 5px;
+    background-color: var(--primary);
+    padding: 6px 5px;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
 }
