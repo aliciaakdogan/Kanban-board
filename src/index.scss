@@ -24,7 +24,24 @@ body {
   background-color: var(--bg-dark-gray);
   color: var(--text);
 }
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
 .main-container {
   display: flex;
+  flex: 1;
+}
+
+.btn {
+  background-color: var(--primary);
+  border: none;
+
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.9;
+  }
 }

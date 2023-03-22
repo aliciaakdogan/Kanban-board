@@ -44,7 +44,7 @@ export default function Sidebar({}: Props) {
             value={projectName}
             onChange={(e) => setProjectName(e.target.value)}
           />
-          <button>Create</button>
+          <button className="btn">Create</button>
         </form>
       )}
     </div>

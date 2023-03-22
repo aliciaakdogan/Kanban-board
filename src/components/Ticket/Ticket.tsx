@@ -1,14 +1,17 @@
 import React from "react";
+import { Ticket as TicketType } from "../../context/projects-data";
 import "./Ticket.scss";
 
-type Props = {};
+type Props = {
+  ticket: TicketType;
+};
 
-export default function Ticket({}: Props) {
+export default function Ticket({ ticket }: Props) {
   return (
     <div className="ticket">
-      <h3>Yhis is a tic</h3>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-      <p>3 subtasks</p>
+      <h3>{ticket.title}</h3>
+      <p>{ticket.description} </p>
+      <p>{ticket.tasks.length} </p>
     </div>
   );
 }
