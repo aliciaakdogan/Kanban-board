@@ -9,7 +9,6 @@
     display: flex;
     gap: 6px;
     align-items: center;
-    margin-bottom: 15px;
 
     .board-title-icon {
       width: 15px;
@@ -39,5 +38,9 @@
   .board-column {
     display: flex;
     flex-direction: column;
+
+    > * {
+      margin-bottom: 15px;
+    }
   }
 }
